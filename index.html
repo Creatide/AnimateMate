@@ -1,1 +1,655 @@
-AnimateMate Web Page
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <meta name="description" content="AnimateMate is plugin for Sketch to make simple animations without need to move around all of your assets to some other program for simple animation.">
+    <meta name="author" content="Creatide">
+
+    <title>AnimateMate - Sketch Animation Plugin</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top"><span class="logo-red">Animate</span><span class="logo-blue">Mate</span></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#info">Info</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#features">Features</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#portfolio">Examples</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#download">Download</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header Video -->
+    <div class="header-video">
+        <img src="video/AnimateMate_Header_1900x1250.jpg" class="header-video__media" data-video-URL="https://www.youtube.com/embed/Scxs7L0vhZ4" data-teaser="video/AnimateMate_Header_1900x1250" data-video-width="1900" data-video-height="1250">
+        <a href="https://www.youtube.com/embed/Scxs7L0vhZ4" class="header-video__play-trigger btn btn-xl" id="header-video__play-trigger"><span class="glyphicon glyphicon-play" aria-hidden="true"></span> Show Me!</a>
+        <button type="button" class="header-video__close-trigger btn btn-xl" id="header-video__close-trigger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Close</button>
+    </div>
+
+    <!-- Info Section -->
+    <section id="info">
+        <div class="container">
+           
+            <div class="row row-centered">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">What is AnimateMate?</h2>
+                    <h3 class="section-subheading text-muted">Haha, is this joke or what?! Why the heck do I need animation tools in <a href="https://www.sketchapp.com/">Sketch.</a></h3>
+                </div>
+            </div>
+            
+            <div class="row text-center">
+                <div class="col-lg-12 text-center">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <p class="large text-muted">You know feeling when you just need a simple animation for your awesome concept and you realize that it's a huge process to move all assets into some other application? That’s a lot of hassle! Like this example.</p>
+                        <img src="img/AnimateMate_Example_Slider_0-135.gif" class="img-responsive top-buffer bottom-buffer col-centered" alt="AnimateMate Example GIF">
+                        <h3>I know the feeling!</h3>
+                        <p class="large text-muted"><br>That's why I created <strong>AnimateMate</strong>  in order to produce and export simple animations straight out of <a href="https://www.sketchapp.com/">Sketch</a>.  It's not exactly rocket science, but it can lighten your workflow in some cases. <br><strong>So let the game begin!</strong></p>
+                        <img src="img/AnimateMate_Example_PingPong_0-100.gif" class="img-responsive top-buffer col-centered" alt="AnimateMate Example GIF">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Features</h2>
+                    <h3 class="section-subheading text-muted">Basic features and more.</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="timeline">
+                       
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/features/AnimateMate_FeatureImage_Keyframes.gif" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Create Keyframes</h4>
+                                    <h5 class="subheading text-muted">You're the Boss!</h5>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">AnimateMate is based on keyframes. So you'll create the main keyframes while AnimateMate takes care of the keyframes in between.</p>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/features/AnimateMate_FeatureImage_Easings.gif" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Use Easings</h4>
+                                    <h5 class="subheading text-muted">The Power of Easing Funtions!</h5>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">AnimateMate uses <a href="http://robertpenner.com/easing/" target="_blank">Robert Penner's</a> great easing functions. So you can get many different easing styles to your animations. <a href="http://easings.net/" target="_blank">Here</a> you can see them in visually.</p>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/features/AnimateMate_FeatureImage_EditKeyframes.gif" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Edit Keyframes</h4>
+                                    <h5 class="subheading text-muted">Nothing is Permanent!</h5>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">You can edit keyframes through organized text view where you can see all of the selected layer keyframes. It looks like JSON. You can also use it for importing and/or exporting animations.</p>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/features/AnimateMate_FeatureImage_RemoveKeyframes.gif" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Remove Keyframes</h4>
+                                    <h5 class="subheading text-muted">Fresh Start!</h5>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">If you don't like your animation, get rid of it! You can delete selected layer animation or the entire animation in artboard if you don’t have anything selected.</p>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/features/AnimateMate_FeatureImage_Groups.gif" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Group of Layers</h4>
+                                    <h5 class="subheading text-muted">Single or Grouped Items</h5>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">AnimateMate supports grouped layers in some cases. It's recommemded to avoid complex nested structures because nested layers affects parent group size and lead wierd animations. <br><strong><i>Tip: Use empty "bounds" layer to affect group parent group size.</i></strong></p>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/features/AnimateMate_FeatureImage_Offset.gif" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Offset Animations</h4>
+                                    <h5 class="subheading text-muted">Control Sequence of Layers</h5>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Offsetting animations is handy when you need to apply alterable or overlapping values to each other layer animations. You can offset animated values in keyframe numbers or animated values.</p>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/features/AnimateMate_FeatureImage_Random.gif" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Power of Randomness</h4>
+                                    <h5 class="subheading text-muted">Random, random, random...</h5>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">This is my favourite feature: random animation data. It's like a little playground for getting different results each time and it's fun to see what you get!</p>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/features/AnimateMate_FeatureImage_ReturnKeyframe.gif" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Return Keyframe</h4>
+                                    <h5 class="subheading text-muted">Back to the Future</h5>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Forgot where an item was on a certain keyframe. No problem- you can reset keyframe values to the item. This also is a handy tool for saving different states of your design. <br><strong><i>Tip: You can reset multiple items at the same time.</i></strong>
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/features/AnimateMate_FeatureImage_Export.gif" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Export Animation</h4>
+                                    <h5 class="subheading text-muted">Animated GIF and PNG Sequence</h5>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">GIF is recommended only for short animations because it takes a long time to convert. Instead I recommend exporting a PNG sequence and saving them to an animated GIF in Photoshop in order to get more control over the quality and size of the file.</p>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <h4>More<br>to<br>Come!</h4>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>To Be Continued...</h4>
+                                    <h5 class="subheading text-muted">Thanks to You</h5>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Even though <strong>AnimateMate</strong> is just a prototype version, I've found it very useful in my workflow. It would really warm my heart to see what you’ve done with it, or just spread the word!</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Examples Grid Section -->
+    <section id="portfolio">
+       
+        <div class="container">
+           
+            <div class="row row-centered">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">It's Showtime</h2>
+                    <h3 class="section-subheading text-muted">Couple examples tell more than 1000 words...</h3>
+                </div>
+            </div>
+            
+            <div class="row row-centered">
+               
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/AnimateMate_Example_01_Thumbnail.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>First Animation Test</h4>
+                        <p class="text-muted">Creatide</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/AnimateMate_Example_03_Thumbnail.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Random Particles</h4>
+                        <p class="text-muted">Creatide</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/AnimateMate_Example_04_Thumbnail.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Wiggle Dots</h4>
+                        <p class="text-muted">Creatide</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/AnimateMate_Example_05_Thumbnail.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Loving Time</h4>
+                        <p class="text-muted">Creatide</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/AnimateMate_Example_06_Thumbnail.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Dots, Dots, Dots</h4>
+                        <p class="text-muted">Creatide</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/AnimateMate_Example_07_Thumbnail.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Additive Movement</h4>
+                        <p class="text-muted">Creatide</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row text-center">
+                <div class="col-lg-12 text-center">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <h5>Submit Your Animation!</h5>
+                        <p class="large text-muted">It would be more than great to see what you've done using with <strong>AnimateMate</strong>.<br>Maybe I can show it here (of course with your permission).</p>
+                        <a href="mailto:hello@creatide.com" class="text-mail">hello@creatide.com</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="bg-light-gray">
+        <div class="container">
+           
+            <div class="row row-centered">
+               
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Download</h2>
+                    <h3 class="section-subheading text-muted">Be nice, it's free!</h3>
+                </div>
+                
+                <div class="col-lg-12 text-center">
+                    <p>
+                        <!--https://github.com/Cretide/AnimateMate/archive/master.zip-->
+                        <a href="#" class="btn btn-primary btn-lg btn-xlg disabled"><i class="fa fa-download" style="padding-right: 10px;"></i> Coming Soon</a>
+                    </p>
+                </div>
+                
+                <div class="col-lg-12 text-center">
+                    <a href="https://github.com/Creatide/AnimateMate" class="btn btn-lg"><span class="fa fa-github"></span> View on GitHub</a>
+                </div>
+                
+                <div class="col-lg-12 text-center">
+                   
+                    <!-- Github Star -->
+                    <a class="github-button" href="https://github.com/Creatide/AnimateMate" data-icon="octicon-star" data-style="mega" data-count-href="/Creatide/AnimateMate/stargazers" data-count-api="/repos/Creatide/AnimateMate#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star Creatide/AnimateMate on GitHub">Star</a>
+                    
+                    <!-- Tweet -->
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://animatemate.com" data-text="AnimateMate animation plugin for Sketch" data-via="CreatideCom" data-size="large" data-hashtags="animatemate">Tweet</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                </div>
+                
+            </div>
+            
+            <div class="row text-center">
+                <div class="col-lg-12 text-center text-area-color-red col-centered">
+                    <h4>Notice</h4>
+                    <hr style="width: 30%; height: 1px; opacity: 0.4;" />
+                    <h6>AnimateMate is still heavily in a prototype phase.<br>Don't be afraid if something goes wrong.</h6>
+                    <h6><small style="color: white; opacity: 0.6;">You've been warned! :)</small></h6>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Creatide Logo Section -->
+    <section id="contact" onclick="window.document.location='http://creatide.com';">
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; <a href="http://www.creatide.com" target="_blank">Creatide</a> 2016</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="https://twitter.com/CreatideCom" target="_blank"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="https://www.facebook.com/creatide" target="_blank"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="https://plus.google.com/101278948562333900650" target="_blank"><i class="fa fa-google"></i></a>
+                        </li>
+                        <li><a href="https://github.com/Creatide" target="_blank"><i class="fa fa-github"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Press Kit</a>
+                        </li>
+                        <li><a href="#">Licence</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Portfolio Modals -->
+
+    <!-- Portfolio Modal 1 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>First Animation Test</h2>
+                            <p class="item-intro text-muted">Creatide</p>
+                            <img class="img-responsive img-centered" src="img/portfolio/AnimateMate_Example_01.gif" alt="">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 2 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Random Particles</h2>
+                            <p class="item-intro text-muted">Creatide</p>
+                            <img class="img-responsive img-centered" src="img/portfolio/AnimateMate_Example_03.gif" alt="">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 3 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Wiggle Dots</h2>
+                            <p class="item-intro text-muted">Creatide</p>
+                            <img class="img-responsive img-centered" src="img/portfolio/AnimateMate_Example_04.gif" alt="">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 4 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Loving Time</h2>
+                            <p class="item-intro text-muted">Creatide</p>
+                            <img class="img-responsive img-centered" src="img/portfolio/AnimateMate_Example_05.gif" alt="">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 5 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Dots, dots, dots</h2>
+                            <p class="item-intro text-muted">Creatide</p>
+                            <img class="img-responsive img-centered" src="img/portfolio/AnimateMate_Example_06.gif" alt="">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 6 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Additive Movement</h2>
+                            <p class="item-intro text-muted">Creatide</p>
+                            <img class="img-responsive img-centered" src="img/portfolio/AnimateMate_Example_07.gif" alt="">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+
+    <script src="js/modernizr.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/script.js"></script>
+    
+    <script>
+        $(document).ready(function () {
+            $('.header-video').each(function (i, elem) {
+                headerVideo = new HeaderVideo({
+                    element: elem,
+                    media: '.header-video__media',
+                    playTrigger: '.header-video__play-trigger',
+                    closeTrigger: '.header-video__close-trigger'
+                });
+            });
+        });
+    </script>
+
+    <!-- Github Button -->
+    <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+    
+</body>
+
+</html>
