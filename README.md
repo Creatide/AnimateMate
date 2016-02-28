@@ -1,0 +1,2 @@
+# AnimateMate
+AnimateMate Sketch Plugin
