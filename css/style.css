@@ -211,7 +211,7 @@ fieldset[disabled] .btn-xl.active {
     }
     .navbar-default.navbar-shrink {
         background-color: rgba(34, 34, 34, 0.95);
-        padding: 10px 0;
+        padding: 10px;
     }
     .navbar-default.navbar-shrink .navbar-brand {
         font-size: 1.5em;
