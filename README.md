@@ -77,15 +77,15 @@ Here are a couple examples that are made using **AnimateMate** plugin in **Sketc
 
 ## Roadmap & Feature Ideas
 
-- [] Visual timeline editor
-- [] Improve groups workflow
-- [] Text animations
-- [] Randomize exist keyframe values
-- [] Select a layer by keyframe numbers
-- [] Anchor helper object into the workflow
-- [] Reverse keyframes
-- [] Spread keyframes to a given time
-- [] Multiple easing types in animations
+* [ ] Visual timeline editor
+* [ ] Improve groups workflow
+* [ ] Text animations
+* [ ] Randomize exist keyframe values
+* [ ] Select a layer by keyframe numbers
+* [ ] Anchor helper object into the workflow
+* [ ] Reverse keyframes
+* [ ] Spread keyframes to a given time
+* [ ] Multiple easing types in animations
 
 
 ## Colloboration & Feedback
