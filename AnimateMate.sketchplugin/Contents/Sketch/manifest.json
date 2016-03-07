@@ -1,0 +1,74 @@
+{
+    "name": "AnimateMate",
+    "description": "Create your animations directly in Sketch using AnimateMate.",
+    "author": "Creatide",
+    "authorEmail": "hello@creatide.com",
+    "homepage": "http://github.com/Creatide/AnimateMate",
+    "version": 1.0,
+    "identifier": "com.creatide.sketch.animatemate",
+    "compatibleVersion": "3.5.2",
+    "bundleVersion": 1,
+    "commands": [
+        {
+            "name": "Export Animation",
+            "identifier": "export",
+            "script": "commands.js",
+            "handler": "exportAnimation",
+            "shortcut": "ctrl option cmd a"
+    },
+        {
+            "name": "Create Animation",
+            "identifier": "keyframe",
+            "script": "commands.js",
+            "handler": "createAnimation",
+            "shortcut": "ctrl option cmd k"
+    },
+        {
+            "name": "Edit Animation",
+            "identifier": "edit",
+            "script": "commands.js",
+            "handler": "editAnimation",
+            "shortcut": "ctrl option cmd l"
+    },
+        {
+            "name": "Offset Animation",
+            "identifier": "offset",
+            "script": "commands.js",
+            "handler": "offsetAnimation",
+            "shortcut": "ctrl option cmd o"
+    },
+        {
+            "name": "Random Animation",
+            "identifier": "random",
+            "script": "commands.js",
+            "handler": "randomAnimation",
+            "shortcut": "ctrl option cmd g"
+    },
+        {
+            "name": "Delete Animation",
+            "identifier": "remove",
+            "script": "commands.js",
+            "handler": "removeAnimation",
+            "shortcut": "ctrl option cmd d"
+    },
+        {
+            "name": "Return Keyframe",
+            "identifier": "return",
+            "script": "commands.js",
+            "handler": "returnKeyframe",
+            "shortcut": "ctrl option cmd r"
+    }
+  ],
+    "menu": {
+        "title": "AnimateMate",
+        "items": [
+            "keyframe",
+            "offset",
+            "random",
+            "edit",
+            "remove",
+            "return",
+            "export"
+        ]
+    }
+}
