@@ -86,6 +86,7 @@ Here are a couple examples that are made using **AnimateMate** plugin in **Sketc
 * [ ] Reverse keyframes
 * [ ] Spread keyframes to a given time
 * [ ] Multiple easing types in animations
+* [ ] More options to GIF exporting
 
 
 ## Colloboration & Feedback
