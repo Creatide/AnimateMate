@@ -3,7 +3,7 @@ AnimateMate Plugin For Sketch
 
 #### "Create your animations directly in Sketch using AnimateMate."
 
-![Alt text](https://www.dropbox.com/s/ubfw4zj4834cgfj/AnimateMate_LogoAnimation_GitHub.gif?raw=1 "AnimateMate - Logo Animation")
+![AnimateMate - Logo Animation](https://github.com/Creatide/AnimateMate/blob/gh-pages/img/readme/AnimateMate_LogoAnimation_GitHub.gif)
 
 <br><br>
 
@@ -13,14 +13,14 @@ You know feeling when you just need a simple animation for your awesome concept 
 
 <br>
 
-![Alt text](https://www.dropbox.com/s/xtmkg71awagbxls/AnimateMate_Example_Slider_0-135.gif?raw=1 "AnimateMate - Slider Example")
+![AnimateMate - Slider Example](https://github.com/Creatide/AnimateMate/blob/gh-pages/img/readme/AnimateMate_Example_Slider_0-135.gif)
 
 ##### *I Know the Feeling!*
 
 That's why I created AnimateMate in order to produce and export simple animations straight out of Sketch. It's not exactly rocket science, but it can lighten your workflow in some cases. 
 So let the game begin!
 
-![Alt text](https://www.dropbox.com/s/olyub2yem68r9vm/AnimateMate_Example_PingPong_0-100.gif?raw=1 "AnimateMate - Game Example")
+![AnimateMate - Game Example](https://github.com/Creatide/AnimateMate/blob/gh-pages/img/readme/AnimateMate_Example_PingPong_0-100.gif)
 
 
 ## Install
@@ -36,7 +36,7 @@ Copy **`AnimateMate.sketchplugin`** to **Sketch** plugins folder.
 There are tons of ways to use **AnimateMate** and I'll try to explain basics in this video.
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=bDm_c4wPBkc
-" target="_blank"><img src="https://www.dropbox.com/s/1v36yytvwg7jkpy/AnimateMate_Basics_Video_YouTube_Thumbnail.png?raw=1" 
+" target="_blank"><img src="https://github.com/Creatide/AnimateMate/blob/gh-pages/img/readme/AnimateMate_Basics_Video_YouTube_Thumbnail.png" 
 alt="AnimateMate Basics" /></a>
 
 You could run into a situation when you're wondering why it's working this or that way... This plugin does not convert your **Sketch** to a fully featured animation software :) However, it'll help you in many simple cases, but if you need more complex animations you should consider some other animation tools. **AnimateMate** was made for creating simple animations at least for now, we'll see how it'll develop in the future...
@@ -58,21 +58,23 @@ Command              | Shortcut                              | Description
 
 Here are a couple examples that are made using **AnimateMate** plugin in **Sketch**. You'll find more info and examples in the [AnimateMate.com](http://animatemate.com) web pages.
 
-![Alt text](https://www.dropbox.com/s/hq1d8ntzb56axx1/AnimateMate_Example_001.gif?raw=1 "Example 1")
+![Example 1](https://github.com/Creatide/AnimateMate/blob/gh-pages/img/readme/AnimateMate_Example_001.gif)
 
-![Alt text](https://www.dropbox.com/s/3wnza9hqr59ebyn/AnimateMate_Example_003_RandomAnimation.gif?raw=1 "Example 2")
+![Example 2](https://github.com/Creatide/AnimateMate/blob/gh-pages/img/readme/AnimateMate_Example_002.gif)
 
-![Alt text](https://www.dropbox.com/s/7yzxyj1fx6rv7py/AnimateMate_Example_004_RandomAnimation.gif?raw=1 "Example 3")
+![Example 3](https://github.com/Creatide/AnimateMate/blob/gh-pages/img/readme/AnimateMate_Example_003_RandomAnimation.gif)
 
-![Alt text](https://www.dropbox.com/s/22o7jgg7xl1ra9o/AnimateMate_Example_005_MaskAnimation.gif?raw=1 "Example 4")
+![Example 4](https://github.com/Creatide/AnimateMate/blob/gh-pages/img/readme/AnimateMate_Example_004_RandomAnimation.gif)
 
-![Alt text](https://www.dropbox.com/s/hs0ppos3nrbp8cl/AnimateMate_Example_006_Over2kItemCountRenderTest.gif?raw=1 "Example 5")
+![Example 5](https://github.com/Creatide/AnimateMate/blob/gh-pages/img/readme/AnimateMate_Example_005_MaskAnimation.gif)
 
-![Alt text](https://www.dropbox.com/s/ifldiuzllhi9qku/AnimateMate_Example_007_ManyItemsCountRenderTest.gif?raw=1 "Example 6")
+![Example 6](https://github.com/Creatide/AnimateMate/blob/gh-pages/img/readme/AnimateMate_Example_006_Over2kItemCountRenderTest.gif)
 
-![Alt text](https://www.dropbox.com/s/q2g1h8vfzuaf5f5/AnimateMate_Example_008_LoadingIndicators.gif?raw=1 "Example 7")
+![Example 7](https://github.com/Creatide/AnimateMate/blob/gh-pages/img/readme/AnimateMate_Example_007_ManyItemsCountRenderTest.gif)
 
-![Alt text](https://www.dropbox.com/s/n612djabnpmqf2o/AnimateMate_Example_CassetteDemo.gif?raw=1 "Example 8")
+![Example 8](https://github.com/Creatide/AnimateMate/blob/gh-pages/img/readme/AnimateMate_Example_008_LoadingIndicators.gif)
+
+![Example 9](https://github.com/Creatide/AnimateMate/blob/gh-pages/img/readme/AnimateMate_Example_CassetteDemo.gif)
 
 
 ## Roadmap & Feature Ideas
