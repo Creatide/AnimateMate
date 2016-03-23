@@ -217,15 +217,15 @@ Animate.prototype.offsetAnimation = function (offsetType, stepSize, responseValu
             switch (offsetType) {
                 case 'normal':
                     var offsetValuesObj = offsetValues(refKeyframe, responseValues, 0);
-                    tmpLayer[i].setKeyframeValues(keyframeNumber, offsetValuesObj, true);
+                    tmpLayer[i].setKeyframeValues(keyframeNumber, offsetValuesObj, true, j);
                     break;
                 case 'stepped (layer)':
                     var offsetValuesObj = offsetValues(refKeyframe, responseValues, j * stepSize);
-                    tmpLayer[i].setKeyframeValues(keyframeNumber, offsetValuesObj, true);
+                    tmpLayer[i].setKeyframeValues(keyframeNumber, offsetValuesObj, true, j);
                     break;
                 case 'stepped (selection)':
                     var offsetValuesObj = offsetValues(refKeyframe, responseValues, i * stepSize);
-                    tmpLayer[i].setKeyframeValues(keyframeNumber, offsetValuesObj, true);
+                    tmpLayer[i].setKeyframeValues(keyframeNumber, offsetValuesObj, true, j);
                     break;
             }
         }

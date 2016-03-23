@@ -38,14 +38,22 @@ Animation.prototype.updateLayerName = function (newBaseName, newEasingType, over
 };
 
 
-Animation.prototype.setKeyframeValues = function (keyframeNumber, valuesObject, changeKeyframeNumber) {
+Animation.prototype.setKeyframeValues = function (keyframeNumber, valuesObject, changeKeyframeNumber, loopIndex) {
     
     var refKeyframe = null;
+    var loopIndex = loopIndex || null;
     var valuesObject = valuesObject || this.getOriginalValues();
     var duplicates = this.searchDuplicateKeyframes(keyframeNumber);
     
     if (!isNaN(duplicates)) {
+        
         refKeyframe = this.keyframes[duplicates];
+        
+        // Offset animation skip duplicates if not in current loop index
+        if (loopIndex && loopIndex != duplicates) {
+            refKeyframe = this.keyframes[loopIndex];
+        }
+        
     } else {
         this.keyframes[this.keyframesLength] = {};
         refKeyframe = this.keyframes[this.keyframesLength];
