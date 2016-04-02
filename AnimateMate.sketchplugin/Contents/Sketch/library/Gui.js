@@ -32,10 +32,11 @@ function Gui () {
 // ---------------------------------------- //
 
 // Alert window base setup
-Gui.prototype.makeBaseDialog = function (useCancelBtn) {
+Gui.prototype.makeBaseDialog = function (useCancelBtn, useResetBtn) {
     var alert = COSAlertWindow.new();
     alert.addButtonWithTitle('OK');
     if (useCancelBtn) alert.addButtonWithTitle('Cancel');
+    if (useResetBtn) alert.addButtonWithTitle('Reset Defaults');
     return alert;
 };
 
@@ -162,7 +163,7 @@ Gui.prototype.createDropdownDialog = function (title, message, valuesArray, defa
 // ---------------------------------------- //
 
 // Create custom inputs form
-Gui.prototype.createCustomForm = function (inputObjectsArray, useCancelBtn) {
+Gui.prototype.createCustomForm = function (inputObjectsArray, useCancelBtn, useResetBtn) {
 
     // Window porperties
     var winObj, winWidth;
@@ -246,7 +247,7 @@ Gui.prototype.createCustomForm = function (inputObjectsArray, useCancelBtn) {
                     case 'input':
                         var newItem = NSTextField.alloc().initWithFrame(NSMakeRect(0, columnHeight + this.defaults.itemMarginY, columnWidth - this.defaults.itemMarginX, itemHeight));
                         // Set default value if values exist
-                        newItem.setStringValue((refItem.value != null) ? refItem.value : "")
+                        newItem.setStringValue((refItem.value != null) ? refItem.value : "");
                         // Push item to arrays
                         itemsArray.push(newItem);
                         inputCollector.push({id: autoInputID, item: newItem});
@@ -336,7 +337,7 @@ Gui.prototype.createCustomForm = function (inputObjectsArray, useCancelBtn) {
     }
 
     // Make dialog base
-    var alert = this.makeBaseDialog(useCancelBtn);
+    var alert = this.makeBaseDialog(useCancelBtn, useResetBtn);
     var title = winObj.title || this.defaults.emptyTitle;
     var message = winObj.description || this.defaults.emptyMessage;
     var iconName = winObj.icon || false;

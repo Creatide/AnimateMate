@@ -3,9 +3,10 @@
 
 var utils = new Utils();
 
-function Utils () {
+function Utils() {
     // General values
     this.scriptName = 'AnimateMate';
+    this.pluginDomain = "com.creatide.sketch.animatemate";
     this.scriptPath = null;
     this.scriptPathRoot = null;
     this.scriptResourcesPath = null;
@@ -21,7 +22,7 @@ function Utils () {
 }
 
 Utils.prototype.init = function (context, loopNestedGroups, forceContinue) {
-    
+
     this.scriptPath = context.scriptPath;
     this.scriptPathRoot = this.scriptPath.stringByDeletingLastPathComponent();
     this.scriptResourcesPath = this.scriptPathRoot.stringByDeletingLastPathComponent() + '/Resources';
@@ -37,7 +38,7 @@ Utils.prototype.init = function (context, loopNestedGroups, forceContinue) {
 
         // Set artboard name
         this.artboardName = this.artboard.name();
-        
+
         // Get artboard rect for size
         this.artboardRect = this.artboard.rect();
         this.artboardSize = {
@@ -61,10 +62,10 @@ Utils.prototype.init = function (context, loopNestedGroups, forceContinue) {
 
         // Update layers count number
         this.layersCount = this.layers.count();
-        
+
         // Init main animate object
         animate.init(this.layers, loopNestedGroups);
-        
+
         // Force continue to return true even there is no animation layers or all layers is selected
         if (forceContinue) return true;
 
@@ -122,6 +123,14 @@ Utils.prototype.zeroPadding = function (num, places) {
     var zero = places - num.toString().length + 1;
     return Array(+(zero > 0 && zero)).join("0") + num;
 };
+
+// Remove target character from object properties
+// Remove periods that NSTextField adds automatically to inputs in Gui.js (newItem.setStringValue())
+Utils.prototype.objRemovePropertyCharacter = function (obj, removeChar) {
+    for (var prop in obj) {
+        obj[prop] = obj[prop].replace(removeChar, "");
+    }
+}
 
 // http://stackoverflow.com/questions/122102/what-is-the-most-efficient-way-to-clone-an-object
 Utils.prototype.cloneObj = function (obj) {
@@ -184,6 +193,14 @@ Utils.prototype.sortByMulti = function () {
     }
 };
 
+Utils.prototype.searchArrayIndex = function (array, value) {
+    var arrayLength = array.length;
+    for (var i = 0; i < arrayLength; i++) {
+        if (array[i] == value) return i;
+    }
+    return null;
+};
+
 // http://stackoverflow.com/questions/7364150/find-object-by-id-in-array-of-javascript-objects
 Utils.prototype.searchObjectArrayIndex = function (array, key, value) {
     var arrayLength = array.length;
@@ -230,7 +247,7 @@ Utils.prototype.objValuesToFloat = function (obj) {
 
 
 Utils.prototype.uniqueNumber = function (a) {
-    return a.sort().filter(function(item, pos, ary) {
+    return a.sort().filter(function (item, pos, ary) {
         return !pos || item != ary[pos - 1];
     })
 };
@@ -239,23 +256,76 @@ Utils.prototype.uniqueNumber = function (a) {
 // http://stackoverflow.com/questions/3971841/how-to-resize-images-proportionally-keeping-the-aspect-ratio
 Utils.prototype.getAspectRatio = function (srcWidth, srcHeight, maxWidth, maxHeight) {
     var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
-    return { width: srcWidth * ratio, height: srcHeight * ratio };
+    return {
+        width: srcWidth * ratio,
+        height: srcHeight * ratio
+    };
 };
 
 
-Utils.prototype.formatTime = function (ms) {    
+Utils.prototype.formatTime = function (ms) {
     var days, hours, minutes, seconds, milliseconds;
     milliseconds = Math.floor((ms / 10) % 100);
     seconds = Math.floor(((ms / 1000) % 60));
     minutes = Math.floor((((ms / 1000) / 60) % 60));
     hours = Math.floor(((((ms / 1000) / 60) / 60) % 24));
 
-    if (hours < 10) { hours   = "0" + hours; }
-    if (minutes < 10) { minutes = "0" + minutes; }
-    if (seconds < 10) { seconds = "0" + seconds; }
-    if (milliseconds < 10) { milliseconds = "0" + milliseconds; }
+    if (hours < 10) {
+        hours = "0" + hours;
+    }
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
+    if (seconds < 10) {
+        seconds = "0" + seconds;
+    }
+    if (milliseconds < 10) {
+        milliseconds = "0" + milliseconds;
+    }
     var time = hours + ':' + minutes + ':' + seconds + ':' + milliseconds;
     return time;
+};
+
+
+// Based to https://stackoverflow.com/questions/15523514/find-by-key-deep-in-nested-json-object
+// Used to find only objects that have specific properties even it's inside of property array
+// incSearchIndes: this value will give index numbers where index values target is located
+Utils.prototype.findObjByProperty = function (obj, searchProperty, arrayName, incSearchIndex) {
+
+    var arrayName = arrayName || null;
+    var result = [];
+
+    function getObject(refObj, foundId) {
+        if (refObj instanceof Array) {
+            for (var i = 0; i < refObj.length; i++) {
+                getObject(refObj[i], i);
+            }
+        } else {
+            // Loop every objects
+            for (var prop in refObj) {
+
+                // Search only from array by names
+                if (prop == arrayName || arrayName == null) {
+
+                    var refObjArr = refObj[prop];
+                    var refObjArrLength = refObjArr.length;
+
+                    for (var i = 0; i < refObjArrLength; i++) {
+
+                        for (var propName in refObjArr[i]) {
+
+                            if (propName == searchProperty) {
+                                if (incSearchIndex) refObjArr[i]["searchId"] = [foundId, i];
+                                result.push(refObjArr[i]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    getObject(obj, undefined);
+    return result;
 };
 
 
@@ -266,7 +336,7 @@ Utils.prototype.formatTime = function (ms) {
 
 Utils.prototype.logObjProperties = function (obj) {
     for (var p in obj) {
-        log(p + ": " + obj[p] );
+        log(p + ": " + obj[p]);
     }
 };
 
@@ -280,7 +350,9 @@ Utils.prototype.benchmarkTime = {
         this.intervalTime = this.startTime;
     },
     interval: function () {
-        var currentTime = null, soloRenderTime = null, renderTimePoint = null;
+        var currentTime = null,
+            soloRenderTime = null,
+            renderTimePoint = null;
         currentTime = new Date();
         soloRenderTime = Math.abs(this.intervalTime - currentTime);
         renderTimePoint = Math.abs(this.intervalTime - this.startTime) + soloRenderTime;
@@ -293,7 +365,7 @@ Utils.prototype.benchmarkTime = {
     }
 };
 
- 
+
 Utils.prototype.benchmarkLoop = {
     startTime: null,
     endTime: null,
@@ -303,7 +375,7 @@ Utils.prototype.benchmarkLoop = {
             var tempTime = new Date();
             log(utils.scriptName + " INDEX: " + currentIndex + " TIME: " + utils.formatTime(Math.abs(tempTime - this.startTime)));
         }
-        if (!this.runStatus){
+        if (!this.runStatus) {
             this.runStatus = true;
             this.startTime = new Date();
         }
