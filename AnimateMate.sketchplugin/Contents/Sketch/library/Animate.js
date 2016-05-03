@@ -455,7 +455,18 @@ Animate.prototype.saveImagePNG = function (keyframeNumber, exportFolder) {
 
 Animate.prototype.saveImageGIF = function (pngFilesLocation, loopValue, delayValue) {
     
-    var loop = loopValue ? ' -l' : '';
+    var loop = ' -l';
+    var loopValue = parseInt(loopValue);
+    
+    // Prevent Gifsicle one extra loop round
+    if (loopValue && !isNaN(loopValue)) {
+        if (loopValue === 1) {
+            loop = ' --no-loopcount';
+        } else {
+            loop = ' -l' + (loopValue - 1);
+        }
+    }
+    
     var delay = parseFloat(delayValue) ? ' -d' + parseFloat(delayValue) : ' -d0';
     var gifExportName = this.exportName + '_' + this.startFrameNumber + '-' + this.endFrameNumber;
     

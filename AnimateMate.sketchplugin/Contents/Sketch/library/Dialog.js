@@ -98,16 +98,15 @@ Dialog.prototype.exportAnimation = function () {
                 {
                     defaultId: 'exportGifDelay',
                     type: 'input',
-                    label: 'GIF Delay',
+                    label: 'Delay',
                     value: 3,
                     column: 0
                 },
                 {
                     defaultId: 'exportGifLoop',
-                    type: 'checkbox',
-                    label: 'GIF Loop',
-                    value: 'Enable Loop',
-                    checked: true,
+                    type: 'input',
+                    label: 'Loop Count (0 = infinite)',
+                    value: 0,
                     column: 1
                 }
             ]
