@@ -64,7 +64,13 @@ Animation.prototype.setKeyframeValues = function (keyframeNumber, valuesObject, 
     refKeyframe.y = valuesObject.y;
     refKeyframe.width = valuesObject.width;
     refKeyframe.height = valuesObject.height;
-    refKeyframe.rotation = valuesObject.rotation >= 360 ? 0 : valuesObject.rotation;
+    
+    // Fix rotation issue after 3.8 update
+    if ( utils.sketchVersion >= '3.8' ) {
+        refKeyframe.rotation = valuesObject.rotation;    
+    } else {
+        refKeyframe.rotation = valuesObject.rotation >= 360 ? 0 : valuesObject.rotation;
+    }
     
     refKeyframe.opacity = Math.min(Math.max(parseFloat(valuesObject.opacity), 0), 1);
 };

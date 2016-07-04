@@ -7,6 +7,7 @@ function Utils() {
     // General values
     this.scriptName = 'AnimateMate';
     this.pluginDomain = "com.creatide.sketch.animatemate";
+    this.sketchVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:"CFBundleShortVersionString"];
     this.scriptPath = null;
     this.scriptPathRoot = null;
     this.scriptResourcesPath = null;
