@@ -86,7 +86,7 @@ Here are a couple examples that are made using **AnimateMate** plugin in **Sketc
 * [ ] Randomize exist keyframe values
 * [ ] Select a layer by keyframe numbers
 * [ ] Anchor helper object into the workflow
-* [ ] Reverse keyframes
+* [x] Reverse keyframes
 * [ ] Spread keyframes to a given time
 * [ ] Multiple easing types in animations
 * [ ] More options to GIF exporting
