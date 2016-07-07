@@ -10,6 +10,12 @@ function Dialog () {}
 // EXPORT ANIMATION / RENDER ANIMATION
 // "shortcut": "ctrl option cmd a"
 Dialog.prototype.exportAnimation = function () {
+    
+    // Warn if there is no animation in selected
+    if (animate.animationLayers.length == 0) {
+        dialog.createDialogMessage(3);
+        return false;
+    }
 
     var elements = [
         {
@@ -75,16 +81,23 @@ Dialog.prototype.exportAnimation = function () {
         },
         {
             group: 'group',
-            columns: 1,
+            columns: 2,
             items: [
+                {
+                    defaultId: 'exportScaleValue',
+                    type: 'input',
+                    label: 'Scale (1 = 100%)',
+                    value: 1,
+                    column: 0
+                },
                 {
                     defaultId: 'exportAnchorPoint',
                     default: 0,
                     type: 'dropdown',
                     label: 'Anchor Point',
                     value: animate.referencePoints,
-                    column: 0
-                }
+                    column: 1
+                }                
             ]
         },
         {
@@ -108,7 +121,36 @@ Dialog.prototype.exportAnimation = function () {
                     label: 'Loop Count (0 = infinite)',
                     value: 0,
                     column: 1
+                }                
+            ]
+        },
+        {
+            group: 'group',
+            columns: 3,
+            items: [
+                {
+                    defaultId: 'exportGifDither',
+                    type: 'checkbox',
+                    value: 'Dither',
+                    checked: false,
+                    column: 2
+                },
+                {
+                    defaultId: 'exportGifColors',
+                    type: 'input',
+                    label: 'Colors (2-256)',
+                    value: 0,
+                    column: 1
+                },
+                {                    
+                    defaultId: 'exportGifOptimize',
+                    type: 'dropdown',
+                    label: 'Optimize Level',
+                    value: ['Disabled', 1, 2, 3],
+                    default: 3,
+                    column: 0
                 }
+                
             ]
         },
         {
@@ -191,14 +233,16 @@ Dialog.prototype.exportAnimation = function () {
         if (response[0] == 1000) {
 
             // Save new default values
-            dialog.defaultValues(elements, response[1]);
+            dialog.defaultValues(elements, response[1], undefined);
 
-            animate.exportAnimation(response[1][2].value, response[1][0].value, response[1][1].value, response[1][3].value, response[1][4].value, response[1][5].value, response[1][6].value, response[1][7].value);
+            animate.exportAnimation(response[1][2].value, response[1][0].value, response[1][1].value, response[1][3].value, response[1][4].value, response[1][6].value, response[1][7].value, response[1][8].value, response[1][5].value, response[1][11].value, response[1][9].value, response[1][10].value);
+            
         } else if (response[0] == 1002) {
             dialog.defaultValues(elements, undefined, elementsDefaults[1]);
         }
     }
 };
+
 
 // CREATE ANIMATION / CREATE NEW KEYFRAME
 // "shortcut": "ctrl option cmd k"
@@ -281,6 +325,7 @@ Dialog.prototype.createAnimation = function () {
     }
 };
 
+
 // REMOVE ANIMATION
 // "shortcut": "ctrl option cmd d"
 Dialog.prototype.removeAnimation = function () {
@@ -305,8 +350,8 @@ Dialog.prototype.removeAnimation = function () {
     }
 
     if (response[0] == 1000) animate.removeAnimation(removeAll);
-    //log(response)
 };
+
 
 // EDIT ANIMATION
 // "shortcut": "ctrl option cmd l"
@@ -370,6 +415,7 @@ Dialog.prototype.editAnimation = function () {
     var response = gui.createCustomForm(elements, true);
     if (response[0] == 1000) animate.editAnimation(response[1][0].value, response[1][1].value);
 };
+
 
 // OFFSET ANIMATION
 // "shortcut": "ctrl option cmd o"
@@ -525,7 +571,18 @@ Dialog.prototype.offsetAnimation = function () {
 // RESTORE KEYFRAME TO ITEM
 // "shortcut": "ctrl option cmd r"
 Dialog.prototype.returnKeyframe = function () {
+    
+    // Warn if there is no animation in selected
+    if (animate.animationLayers.length == 0) {
+        dialog.createDialogMessage(3);
+        return false;
+    }
 
+    // Warn user if there is more than one layer selected 
+    if (utils.selection.count() > 1 || utils.allLayersActive) {
+        dialog.createDialogMessage(10);
+    }
+    
     var elements = [
         {
             group: 'window',
@@ -549,18 +606,7 @@ Dialog.prototype.returnKeyframe = function () {
                 }
             ]
         }
-    ];
-
-    // Warn if there is no animation in selected
-    if (animate.animationLayers.length == 0) {
-        dialog.createDialogMessage(3);
-        return false;
-    }
-
-    // Warn user if there is more than one layer selected 
-    if (utils.selection.count() > 1 || utils.allLayersActive) {
-        dialog.createDialogMessage(10);
-    }
+    ];    
 
     var response = gui.createCustomForm(elements, true);
     if (response[0] == 1000) animate.returnKeyframe(response[1][0].value);
@@ -571,6 +617,12 @@ Dialog.prototype.returnKeyframe = function () {
 // "shortcut": "ctrl option cmd b"
 Dialog.prototype.reverseKeyframes = function () {
 
+    // Warn if there is no animation in selected
+    if (animate.animationLayers.length == 0) {
+        dialog.createDialogMessage(3);
+        return false;
+    }
+    
     // Reverse all animations and warn user about it
     if (utils.selection.count() > 1 || utils.allLayersActive) {
         var elements = [
@@ -963,7 +1015,6 @@ Dialog.prototype.randomAnimation = function () {
     animate.easingTypes.shift();
 
     if (response[0] == 1000) {
-
         // Save new default values
         dialog.defaultValues(elements, response[1]);
         animate.randomAnimation(responseValuesObj);
@@ -988,6 +1039,7 @@ Dialog.prototype.defaultValues = function (elements, responseValues, resetDefaul
     var uiDefaults = {};
     var userDefaults = {};
     var storedDefaults = {};
+    var responseValues = responseValues;
 
     // Get / Update stored default values to memory
     function getStoredDefaults(initialValues) {
@@ -995,15 +1047,13 @@ Dialog.prototype.defaultValues = function (elements, responseValues, resetDefaul
         var refPluginDomain = utils.pluginDomain;
         var defaults = [[NSUserDefaults standardUserDefaults] objectForKey: refPluginDomain];
         var defaultValues = {};
-        var defaulVal;
 
         for (var key in defaults) {
             defaultValues[key] = defaults[key];
         }
 
         for (var key in initialValues) {
-            defaulVal = defaultValues[key];
-            if (defaulVal == null) defaultValues[key] = initialValues[key];
+            if (defaultValues[key] == null) defaultValues[key] = initialValues[key];
         }
 
         storedDefaults = defaultValues;
@@ -1018,23 +1068,25 @@ Dialog.prototype.defaultValues = function (elements, responseValues, resetDefaul
 
             var defaults = [[NSUserDefaults standardUserDefaults] objectForKey: refPluginDomain];
             var defaultValues = {};
-            var defaulVal;
-
+            
             for (var key in defaults) {
                 defaultValues[key] = defaults[key];
             }
-
+            
             for (var key in newValues) {
-                defaulVal = defaultValues[key];
-                if (defaulVal != newValues[key]) {
+                if (defaultValues[key] != newValues[key]) {
                     defaultValues[key] = newValues[key];
                 }
             }
 
-            // Replace defaults with ne object
+            // Replace defaults with new object
             var defaultsRef = [NSUserDefaults standardUserDefaults];
             [defaultsRef setObject: defaultValues forKey: refPluginDomain];
-
+            
+            // Comment out to clear NSUserDefaults
+            // [defaultsRef setObject: null forKey: refPluginDomain];
+            // log("AnimateMate: " + defaults);
+            
             storedDefaults = defaults;
         }
     }
@@ -1045,11 +1097,15 @@ Dialog.prototype.defaultValues = function (elements, responseValues, resetDefaul
         var foundObjectsArr = utils.findObjByProperty(elements, 'defaultId', 'items', true);
 
         // Search pairs from submitted values and default values
-        function searchMatchResponseValues(tmpId) {
+        function searchMatchResponseValues(tmpObj) {
+            var tmpId = tmpObj.searchId;
+            var refObjId = tmpId.join('');
             for (var i = 0; i < responseValues.length; i++) {
-                var refObjId = tmpId.join('');
                 var responseId = (responseValues[i]['id'].split(':')).slice(0, -1).join('');
-                if (refObjId == responseId) return responseValues[i].value;
+                if (refObjId == responseId) {
+                    //log("AnimateMate: " + responseValues[i].value + " :: " + tmpObj.defaultId);
+                    return responseValues[i].value;
+                }
             }
         }
 
@@ -1061,16 +1117,16 @@ Dialog.prototype.defaultValues = function (elements, responseValues, resetDefaul
             switch (refObj.type) {
                 case 'input':
                     uiDefaults[refObj.defaultId] = refObj.value;
-                    if (responseValues) userDefaults[refObj.defaultId] = searchMatchResponseValues(refObj.searchId);
+                    if (responseValues) userDefaults[refObj.defaultId] = searchMatchResponseValues(refObj);
                     break;
                 case 'checkbox':
                     uiDefaults[refObj.defaultId] = refObj.checked;
-                    if (responseValues) userDefaults[refObj.defaultId] = searchMatchResponseValues(refObj.searchId);
+                    if (responseValues) userDefaults[refObj.defaultId] = searchMatchResponseValues(refObj);
                     break;
                 case 'dropdown':
                     uiDefaults[refObj.defaultId] = refObj.value[refObj.default];
                     //uiDefaults[refObj.defaultId] = refObj.default;
-                    if (responseValues) userDefaults[refObj.defaultId] = searchMatchResponseValues(refObj.searchId);
+                    if (responseValues) userDefaults[refObj.defaultId] = searchMatchResponseValues(refObj);
                     break;
             }
         }
@@ -1104,7 +1160,7 @@ Dialog.prototype.defaultValues = function (elements, responseValues, resetDefaul
                         }
                     }
                     for (var newProp in newValObj) {
-                        if (refObj[oldProp] == newProp) {                            
+                        if (refObj[oldProp] == newProp) {
                             switch (refObj.type) {
                                 case 'input':
                                     refObj.value = newValObj[newProp];

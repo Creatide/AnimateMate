@@ -316,7 +316,9 @@ Utils.prototype.findObjByProperty = function (obj, searchProperty, arrayName, in
                         for (var propName in refObjArr[i]) {
 
                             if (propName == searchProperty) {
-                                if (incSearchIndex) refObjArr[i]["searchId"] = [foundId, i];
+                                if (incSearchIndex) {
+                                    refObjArr[i]["searchId"] = [foundId, i];
+                                }
                                 result.push(refObjArr[i]);
                             }
                         }

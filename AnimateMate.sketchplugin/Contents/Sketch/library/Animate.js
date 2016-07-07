@@ -1,6 +1,6 @@
 @import 'library/Animation.js';
 
-var debugLog = true;
+var debugLog = false;
 var animate = new Animate();
 function Animate () {}
  
@@ -43,7 +43,7 @@ Animate.prototype.init = function (layers, loopNestedGroups) {
 // ---------------------------------------- //
 
 
-Animate.prototype.exportAnimation = function (exportName, exportGif, exportPng, renderStartFrame, renderEndFrame, referencePoint, loopAnimation, delayAnimation) {
+Animate.prototype.exportAnimation = function (exportName, exportGif, exportPng, renderStartFrame, renderEndFrame, referencePoint, loopAnimation, delayAnimation, scaleValue, gifDither, gifOptimize, gifColors) {
     
     // Set base name for exported items
     this.exportName = exportName || this.exportName;
@@ -97,8 +97,11 @@ Animate.prototype.exportAnimation = function (exportName, exportGif, exportPng, 
             }
         }
         
+        // Set scale value to default if it's wrongly typed
+        var scaleValue = utils.isNumeric(scaleValue) && scaleValue > 0 ? scaleValue : 1;
+        
         // Save PNG base images to selected location
-        this.saveImagePNG(utils.zeroPadding(k, digitsNumber), pngFilesLocation);
+        this.saveImagePNG(utils.zeroPadding(k, digitsNumber), pngFilesLocation, scaleValue);
         
         // Log frame render time
         if (debugLog) dialog.createLogMessage(1, [utils.zeroPadding(k, digitsNumber), utils.benchmarkTime.interval()]);
@@ -113,7 +116,7 @@ Animate.prototype.exportAnimation = function (exportName, exportGif, exportPng, 
     if (exportGif != 0 && this.exportFolders.tempFolder) {
         // Log GIF starting message
         if (debugLog) dialog.createLogMessage(2);
-        this.saveImageGIF(pngFilesLocation, delayAnimation, loopAnimation);
+        this.saveImageGIF(pngFilesLocation, delayAnimation, loopAnimation, gifDither, gifOptimize, gifColors);
     }
     
     // Remove temporary folder
@@ -512,17 +515,38 @@ Animate.prototype.getLayers = function (layers, loopNestedGroups) {
 // ---------------------------------------- //
 
 
-Animate.prototype.saveImagePNG = function (keyframeNumber, exportFolder) {
+Animate.prototype.saveImagePNG = function (keyframeNumber, exportFolder, scaleValue) {
     var exportFolder = exportFolder || this.exportFolders.tempFolder.folderPath;
     var fileName = exportFolder.stringByAppendingPathComponent(this.exportName + '_' + keyframeNumber + '.png');
-    utils.doc.saveArtboardOrSlice_toFile_(utils.artboard, fileName);
+    var scaleSlice = [MSExportRequest requestWithRect:utils.artboardRect scale:scaleValue];
+    //utils.doc.saveArtboardOrSlice_toFile_(utils.artboard, fileName);
+    utils.doc.saveArtboardOrSlice_toFile_(scaleSlice, fileName);
 };
 
 
-Animate.prototype.saveImageGIF = function (pngFilesLocation, loopValue, delayValue) {
+Animate.prototype.saveImageGIF = function (pngFilesLocation, loopValue, delayValue, gifDither, gifOptimizeLevel, gifColors) {
     
     var loop = ' -l';
     var loopValue = parseInt(loopValue);
+    var colorsValue = parseInt(gifColors);
+    var dither = parseInt(gifDither) ? ' --dither' : '';
+    
+    // Colors between 2-256 value
+    colorsValue = colorsValue >= 2 && colorsValue <= 256 ? ' --colors=' + colorsValue : '';
+    
+    // Switch optimize levels
+    var optimize = '';
+    switch (parseInt(gifOptimizeLevel)) {
+        case 1:
+            optimize = ' -O1';
+            break;
+        case 2:
+            optimize = ' -O2';
+            break;
+        case 3:
+            optimize = ' -O3';
+            break;
+    }
     
     // Prevent Gifsicle one extra loop round
     if (loopValue && !isNaN(loopValue)) {
@@ -547,7 +571,9 @@ Animate.prototype.saveImageGIF = function (pngFilesLocation, loopValue, delayVal
     
     // Create bash command arguments
     var convertGifImages = "find \"" + pngFilesLocation + "\" -name '*.png' -exec sips -s format gif -o \"" + tmpFolder + "\" {}.gif {} \\;";
-    var convertGifAnimation = "find \"" + tmpFolder + "\" -name '*.gif' -execdir bash -c '\"" + gifConverter + "\"" + loop + delay + " '*.gif' -o \"" + exportFolder + '/' + gifExportName + '.gif' + "\"' \\;";
+    var convertGifAnimation = "find \"" + tmpFolder + "\" -name '*.gif' -execdir bash -c '\"" + gifConverter + "\"" + colorsValue + dither + optimize + loop + delay + " '*.gif' -o \"" + exportFolder + '/' + gifExportName + '.gif' + "\"' \\;";
+    
+    //log("AnimateMate: " + convertGifAnimation );
     
     // Create GIF Image Sequence from exist PNG images
     convertTask.setLaunchPath("/bin/bash");

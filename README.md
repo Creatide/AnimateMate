@@ -43,15 +43,16 @@ You could run into a situation when you're wondering why it's working this or th
 
 #### Shortcuts
 
-Command              | Shortcut                              | Description
-:------------------- | :------------------------------------ | :------------------------------------------------
-**Create Animation** | *`ctrl` + `option` + `cmd` +* **`K`** | Create new animation / keyframe to layer.
-**Offset Animation** | *`ctrl` + `option` + `cmd` +* **`O`** | Offset animated and/or keyframe values.
-**Random Animation** | *`ctrl` + `option` + `cmd` +* **`G`** | Generate random animation to selected layers.
-**Edit Animation**   | *`ctrl` + `option` + `cmd` +* **`L`** | Edit layer animation values in ordered text view.
-**Delete Animation** | *`ctrl` + `option` + `cmd` +* **`D`** | Delete animation from selected layer(s).
-**Return Keyframe**  | *`ctrl` + `option` + `cmd` +* **`R`** | Return selected keyframe values to layer(s).
-**Export Animation** | *`ctrl` + `option` + `cmd` +* **`A`** | Export your animation to PNG or GIF format.
+Command               | Shortcut                              | Description
+:-------------------  | :------------------------------------ | :----------------------------------------------------
+**Create Animation**  | *`ctrl` + `option` + `cmd` +* **`K`** | Create new animation / keyframe to layer.
+**Offset Animation**  | *`ctrl` + `option` + `cmd` +* **`O`** | Offset animated and/or keyframe values.
+**Random Animation**  | *`ctrl` + `option` + `cmd` +* **`G`** | Generate random animation to selected layers.
+**Edit Animation**    | *`ctrl` + `option` + `cmd` +* **`L`** | Edit layer animation values in ordered text view.
+**Delete Animation**  | *`ctrl` + `option` + `cmd` +* **`D`** | Delete animation from selected layer(s).
+**Return Keyframe**   | *`ctrl` + `option` + `cmd` +* **`R`** | Return selected keyframe values to layer(s).
+**Export Animation**  | *`ctrl` + `option` + `cmd` +* **`A`** | Export your animation to PNG or GIF format.
+**Reverse Keyframes** | *`ctrl` + `option` + `cmd` +* **`B`** | Reverse keyframes in single or multiple animations.
 
 
 ## Examples
@@ -89,7 +90,7 @@ Here are a couple examples that are made using **AnimateMate** plugin in **Sketc
 * [x] Reverse keyframes
 * [ ] Spread keyframes to a given time
 * [ ] Multiple easing types in animations
-* [ ] More options to GIF exporting
+* [x] More options to GIF exporting
 
 
 ## Colloboration & Feedback
