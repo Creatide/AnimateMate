@@ -564,8 +564,66 @@ Dialog.prototype.returnKeyframe = function () {
 
     var response = gui.createCustomForm(elements, true);
     if (response[0] == 1000) animate.returnKeyframe(response[1][0].value);
+};
 
-    //log(response)
+
+// REVERSE KEYFRAMES
+// "shortcut": "ctrl option cmd b"
+Dialog.prototype.reverseKeyframes = function () {
+
+    // Reverse all animations and warn user about it
+    if (utils.selection.count() > 1 || utils.allLayersActive) {
+        var elements = [
+            {
+                group: 'window',
+                title: 'Reverse All Animations',
+                description: 'You not have multiple animations selected. This will reverse all selected animations. Select only one layer to reverse single animation by range. Do you want to reverse all selected layers animations?',
+                icon: 'icon.icns'
+            }
+        ];
+        
+        var response = gui.createCustomForm(elements, true);
+        if (response[0] == 1000) animate.reverseKeyframes();
+    } 
+    
+    // Reverse only single animation
+    else {
+        var elements = [
+            {
+                group: 'window',
+                title: 'Reverse Keyframes',
+                description: 'This will reverse keyframes by selecting custom range of keyframes. Select first and last keyframes and all keyframes inside of that range will be reversed. By default it uses first and last keyframe to affect all keyframes.',
+                icon: 'icon.icns'
+            },
+            {
+                group: 'Reverse Keyframes Range',
+                columns: 2,
+                fontSize: 10,
+                fontBold: true,
+                uppercase: true,
+                height: 15,
+                items: [
+                    {
+                        type: 'dropdown',
+                        label: 'From',
+                        default: 0,
+                        value: animate.keyframeNumbers,
+                        column: 0
+                    },
+                    {
+                        type: 'dropdown',
+                        label: 'To',
+                        default: animate.keyframeNumbers.length - 1,
+                        value: animate.keyframeNumbers,
+                        column: 1
+                    }
+                ]
+            }
+        ];
+        
+        var response = gui.createCustomForm(elements, true);
+        if (response[0] == 1000) animate.reverseKeyframes(response[1][0].value, response[1][1].value);
+    }
 };
 
 

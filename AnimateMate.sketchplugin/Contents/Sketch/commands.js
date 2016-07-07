@@ -42,3 +42,9 @@ function returnKeyframe(context) {
         dialog.returnKeyframe();
     }
 } 
+
+function reverseKeyframes(context) {
+    if (utils.init(context)) {
+        dialog.reverseKeyframes();
+    }
+} 

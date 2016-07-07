@@ -327,6 +327,72 @@ Animate.prototype.randomAnimation = function (responseValuesObj) {
     }
 };
 
+
+Animate.prototype.reverseKeyframes = function (keyframeFrom, keyframeTo) {
+    
+    var rangeIndexes = {
+        from: undefined,
+        to: undefined
+    }
+    
+    // Reverse single animation
+    if (keyframeFrom && keyframeTo) {
+        // Search keyframe index numbers
+        rangeIndexes.from = utils.searchObjectArrayIndex(this.animationLayers[0].keyframes, 'number', keyframeFrom);
+        rangeIndexes.to = utils.searchObjectArrayIndex(this.animationLayers[0].keyframes, 'number', keyframeTo);
+
+
+        // Switch index numbers if start index is bigger than end index
+        if (rangeIndexes.from > rangeIndexes.to) {
+            var tmpVal = rangeIndexes.from;
+            rangeIndexes.from = rangeIndexes.to;
+            rangeIndexes.to = tmpVal;
+        }
+
+        // Reverse keyframe numbers in array by range
+        var endIndex = rangeIndexes.to;
+        for ( var i = rangeIndexes.from; i < endIndex; i++ ) {
+
+            // Switch values from first and last
+            var aVal = this.animationLayers[0].keyframes[i].number;
+            var bVal = this.animationLayers[0].keyframes[endIndex].number;
+            this.animationLayers[0].keyframes[i].number = bVal;
+            this.animationLayers[0].keyframes[endIndex].number = aVal;
+
+            // Decrease range to affect next value from end
+            endIndex--;
+        }
+
+        this.animationLayers[0].updateLayerName();
+    }
+    
+    // Reverse multiple animations if single layer not selected
+    else {
+        
+        // Loop all animations
+        for (var i in tmpLayer = this.animationLayers) {
+            
+            var endIndex = tmpLayer[i].keyframes.length - 1;
+            
+            // Loop all keyframes in current animation
+            for ( var k = 0; k < endIndex; k++ ) {
+                
+                // Switch values from first and last
+                var aVal = tmpLayer[i].keyframes[k].number;
+                var bVal = tmpLayer[i].keyframes[endIndex].number;
+                tmpLayer[i].keyframes[k].number = bVal;
+                tmpLayer[i].keyframes[endIndex].number = aVal;
+
+                // Decrease range to affect next value from end
+                endIndex--;
+            }
+            
+            tmpLayer[i].updateLayerName();
+        }        
+    }
+};
+
+
 // ---------------------------------------- //
 //                Get Layers                //
 // ---------------------------------------- //
