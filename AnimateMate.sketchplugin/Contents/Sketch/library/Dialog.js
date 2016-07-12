@@ -139,7 +139,7 @@ Dialog.prototype.exportAnimation = function () {
                     defaultId: 'exportGifColors',
                     type: 'input',
                     label: 'Colors (2-256)',
-                    value: 0,
+                    value: '0 = Disabled',
                     column: 1
                 },
                 {                    
