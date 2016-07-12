@@ -95,6 +95,8 @@ Here are a couple examples that are made using **AnimateMate** plugin in **Sketc
 
 ## Colloboration & Feedback
 
+If you fork AnimateMate and create some useful updates, please do send me pull requests so I can include your work to AnimateMate and give you credit here!
+
 There is so much to do in order to make it better! Collaboration is very welcome and all feedback is greatly appreciated [hello@creatide.com](mailto:hello@creatide.com)
 
 > I'm a Visual Designer and a hobbyist coder. So if you're a more experienced with code, I know we can make it even better :)
