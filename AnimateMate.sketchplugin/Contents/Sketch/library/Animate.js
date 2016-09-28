@@ -570,10 +570,13 @@ Animate.prototype.saveImageGIF = function (pngFilesLocation, loopValue, delayVal
     var tmpFolder = this.exportFolders.tempFolder.folderPath;
     
     // Create bash command arguments
-    var convertGifImages = "find \"" + pngFilesLocation + "\" -name '*.png' -exec sips -s format gif -o \"" + tmpFolder + "\" {}.gif {} \\;";
-    var convertGifAnimation = "find \"" + tmpFolder + "\" -name '*.gif' -execdir bash -c '\"" + gifConverter + "\"" + colorsValue + dither + optimize + loop + delay + " '*.gif' -o \"" + exportFolder + '/' + gifExportName + '.gif' + "\"' \\;";
+    //var convertGifImages = "find \"" + pngFilesLocation + "\" -name '*.png' -exec sips -s format gif -o \"" + tmpFolder + "\" {}.gif {} \\;";
     
-    //log("AnimateMate: " + convertGifAnimation );
+    var convertGifImages = "find \"" + pngFilesLocation + "\" -iname '*.png' -type f -exec sh -c 'sips -s format gif \"$0\" --out \"" + tmpFolder + "\"' {} \\;";
+    
+    var convertGifAnimation = "find \"" + tmpFolder + "\" -iname '*.gif' -execdir bash -c '\"" + gifConverter + "\"" + colorsValue + dither + optimize + loop + delay + " '*.gif' -o \"" + exportFolder + '/' + gifExportName + '.gif' + "\"' \\;";
+    
+    //log("AnimateMate: " + convertGifImages );
     
     // Create GIF Image Sequence from exist PNG images
     convertTask.setLaunchPath("/bin/bash");
