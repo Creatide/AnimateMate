@@ -78,6 +78,10 @@ Here are a couple examples that are made using **AnimateMate** plugin in **Sketc
 ![Example 9](https://github.com/Creatide/AnimateMate/blob/gh-pages/img/readme/AnimateMate_Example_CassetteDemo.gif)
 
 
+## Known Bugs to Fix
+
+* [] Export scaling option doesn't work after Sketch 41 version.
+
 ## Roadmap & Feature Ideas
 
 * [x] Remember values in some input fields in dialogs

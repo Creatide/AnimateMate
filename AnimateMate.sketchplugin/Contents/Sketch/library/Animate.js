@@ -518,9 +518,14 @@ Animate.prototype.getLayers = function (layers, loopNestedGroups) {
 Animate.prototype.saveImagePNG = function (keyframeNumber, exportFolder, scaleValue) {
     var exportFolder = exportFolder || this.exportFolders.tempFolder.folderPath;
     var fileName = exportFolder.stringByAppendingPathComponent(this.exportName + '_' + keyframeNumber + '.png');
-    var scaleSlice = [MSExportRequest requestWithRect:utils.artboardRect scale:scaleValue];
-    //utils.doc.saveArtboardOrSlice_toFile_(utils.artboard, fileName);
-    utils.doc.saveArtboardOrSlice_toFile_(scaleSlice, fileName);
+    if (utils.sketchVersion >= 41) {
+        utils.doc.saveArtboardOrSlice_toFile_(utils.artboard, fileName);
+    } 
+    else {
+        // Work only with sketch < 41 version
+        var scaleSlice = [MSExportRequest requestWithRect:utils.artboardRect scale:scaleValue];
+        utils.doc.saveArtboardOrSlice_toFile_(scaleSlice, fileName);
+    }
 };
 
 
