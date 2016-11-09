@@ -80,7 +80,7 @@ Here are a couple examples that are made using **AnimateMate** plugin in **Sketc
 
 ## Known Bugs to Fix
 
-* [] Export scaling option doesn't work after Sketch 41 version.
+* [ ] Export scaling option doesn't work after Sketch 41 version.
 
 ## Roadmap & Feature Ideas
 
