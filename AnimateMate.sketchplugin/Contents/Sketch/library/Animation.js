@@ -224,9 +224,12 @@ Animation.prototype.getOriginalValues = function (layer) {
     var layer = layer || this.layer;
     var parentGroupValues = this.getParentValues();
     var returnObj = {};
-     
-    returnObj.x = Math.round((layer.frame().x() + parentGroupValues.x) * 100) / 100;
-    returnObj.y = Math.round((layer.frame().y() + parentGroupValues.y) * 100) / 100;
+    
+    // Updated based on this bug report https://github.com/Creatide/AnimateMate/issues/27
+    // It seems that changing this one prevents object jumping after exporting, even exported content seems to be ok
+    // Tested with Sketch 44 version. Not sure if there is problems with other versions.
+    returnObj.x = Math.round((layer.frame().x()) * 100) / 100;
+    returnObj.y = Math.round((layer.frame().y()) * 100) / 100;
     
     returnObj.width = Math.round(layer.frame().width() * 100) / 100;
     returnObj.height = Math.round(layer.frame().height() * 100) / 100;
