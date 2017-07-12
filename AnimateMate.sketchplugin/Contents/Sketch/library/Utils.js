@@ -34,6 +34,7 @@ Utils.prototype.init = function (context, loopNestedGroups, forceContinue) {
     this.page = this.doc.currentPage();
     this.artboard = this.page.currentArtboard();
     this.allLayersActive = false;
+    this.api = context.api();
 
     if (this.artboard) {
 
@@ -86,6 +87,15 @@ Utils.prototype.init = function (context, loopNestedGroups, forceContinue) {
 };
 
 
+Utils.prototype.getKeyframeNumber = function() {
+    return this.api.settingForKey('AnimateMateFrame') || 0;
+}
+
+Utils.prototype.setKeyframeNumber = function(keyframe) {
+    log('saved keyframe'+ keyframe);
+    this.api.setSettingForKey('AnimateMateFrame', keyframe);
+}
+
 // ---------------------------------------- //
 //                  Helpers                 //
 // ---------------------------------------- //
@@ -118,6 +128,20 @@ Utils.prototype.arrayNext = function (arr, i) {
 
 Utils.prototype.arrayPrev = function (arr, i) {
     return arr[--i];
+};
+
+Utils.prototype.closestValueAbove = function(value, arr) {
+    for (var i = 0; i < arr.length; i++){
+        if (arr[i] > value) return arr[i];
+    }
+    return arr[arr.length-1] || 0;
+};
+
+Utils.prototype.closestValueBelow = function(value, arr) {
+    for (var i = arr.length-1; i >= 0; i--){
+        if (arr[i] < value) return arr[i];
+    }
+    return arr[0] || 0;
 };
 
 Utils.prototype.zeroPadding = function (num, places) {
