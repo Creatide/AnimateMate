@@ -318,6 +318,8 @@ Dialog.prototype.createAnimation = function () {
             dialog.defaultValues(elements, response[1]);
             
             animate.createAnimation(response[1][1].value, response[1][0].value, response[1][2].value);
+
+            utils.setKeyframeNumber(response[1][0].value);
         }
         else if (response[0] == 1002) {
             dialog.defaultValues(elements, undefined, elementsDefaults[1]);
@@ -1296,6 +1298,11 @@ Dialog.prototype.createBottomMessage = function (messageId, optionalMessage) {
     case 4:
         gui.createInfoMessage("Process Failed. (" + optionalMessage + ")");
         log(utils.scriptName + " Process Failed (" + optionalMessage + ")");
+        break;
+
+    case 5:
+        gui.createInfoMessage("Keyframe Selected:" + optionalMessage );
+        log(utils.scriptName + "Keyframe Selected:" + optionalMessage );
         break;
     }
 };

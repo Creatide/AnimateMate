@@ -58,6 +58,27 @@
             "handler": "returnKeyframe",
             "shortcut": "ctrl option cmd r"
     },
+        {
+            "name": "Next Keyframe",
+            "identifier": "next",
+            "script": "commands.js",
+            "handler": "nextKeyframe",
+            "shortcut": "ctrl option cmd ."
+    },
+        {
+            "name": "Previous Keyframe",
+            "identifier": "previous",
+            "script": "commands.js",
+            "handler": "previousKeyframe",
+            "shortcut": "ctrl option cmd ,"
+    },
+        {
+            "name": "Update Keyframe",
+            "identifier": "update",
+            "script": "commands.js",
+            "handler": "updateKeyframeValues",
+            "shortcut": "ctrl option cmd /"
+    },
     {
         "name": "Reverse Keyframes",
         "identifier": "reverse",
@@ -76,7 +97,10 @@
             "remove",
             "return",
             "reverse",
-            "export"
+            "export",
+            "next",
+            "previous",
+            "update"
         ]
     }
 }
