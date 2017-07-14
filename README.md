@@ -120,10 +120,16 @@ I think most of the graphical design sofwares should include at least some very 
 
 > Working as a designer makes your come up with different ideas on how your workflow could be improved. My approach: when you got an idea for a specific tool, create it, then you have it. That's what Creatide is all about.
 
+### Contributors
+
+Thank you all for your contributions. Special thanks to these people for writing code:
+
+@headlessme
+
 ### Licence
 
 The MIT License (MIT)
-Copyright (c) 2016 [Creatide](http://creatide.com) *([Sakari Niittymaa](http://sakari.niittymaa.com))*
+Copyright (c) 2017 [Creatide](http://creatide.com) *([Sakari Niittymaa](http://sakari.niittymaa.com))*
 
 ### Used Libraries & Tools
 
