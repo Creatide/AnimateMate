@@ -124,7 +124,7 @@ I think most of the graphical design sofwares should include at least some very 
 
 Thank you all for your contributions. Special thanks to these people for writing code:
 
-@headlessme
+[@headlessme](https://github.com/headlessme)
 
 ### Licence
 
