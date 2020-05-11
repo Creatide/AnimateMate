@@ -1,6 +1,12 @@
 AnimateMate Plugin For Sketch
 =============================
 
+```diff
+- AnimateMate project is deprecated
+- Unfortunately I don't have time to update the AnimateMate plugin anymore. 
+- If you create updates, please do send me pull requests and I'll update it to the master.
+```
+
 #### "Create your animations directly in Sketch using AnimateMate."
 
 ![AnimateMate - Logo Animation](https://github.com/Creatide/AnimateMate/blob/gh-pages/img/readme/AnimateMate_LogoAnimation_GitHub.gif)
