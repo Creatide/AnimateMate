@@ -1,3 +1,4 @@
+const Settings = require('sketch/settings');
 @import 'library/easing.js';
 @import 'library/Animate.js';
 
@@ -34,7 +35,6 @@ Utils.prototype.init = function (context, loopNestedGroups, forceContinue) {
     this.page = this.doc.currentPage();
     this.artboard = this.page.currentArtboard();
     this.allLayersActive = false;
-    this.api = context.api();
 
     if (this.artboard) {
 
@@ -88,12 +88,12 @@ Utils.prototype.init = function (context, loopNestedGroups, forceContinue) {
 
 
 Utils.prototype.getKeyframeNumber = function() {
-    return this.api.settingForKey('AnimateMateFrame') || 0;
+    return Settings.settingForKey('AnimateMateFrame') || 0;
 }
 
 Utils.prototype.setKeyframeNumber = function(keyframe) {
     log('saved keyframe'+ keyframe);
-    this.api.setSettingForKey('AnimateMateFrame', keyframe);
+    Settings.setSettingForKey('AnimateMateFrame', keyframe);
 }
 
 // ---------------------------------------- //
